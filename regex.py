@@ -1,5 +1,7 @@
 import pyperclip, re
 
+#finds phone numbers and email addresses in the clipboard
+
 phoneRegex=re.compile(r'''(
     (\d{3}|\(\d{3}\))?              #area code
     (\s|-|\.)?                      #separator
@@ -34,3 +36,31 @@ if len(matches)>0:
     print '\n'.join(matches)
 else:
     print "no phone numbers or email adresses found."
+
+    
+    
+    
+#checks if the password is strong enough
+
+capitalLetters=re.compile(r'([A-Z]+)')
+lowerCaseLetters=re.compile(r'([a-z]+)')
+digits=re.compile(r'([\d]+)')
+while True:
+    password=raw_input("please input password: ")
+    if len(password)>=8:
+        check= capitalLetters.search(password)
+        if check!=None:
+            check=lowerCaseLetters.search(password)
+            if check!=None:
+                check=digits.search(password)
+                if check!=None:
+                    print "your password is strong"
+                    break
+                else:
+                    print "password does not contain digits"
+            else:
+                print "password does not contain lower case letters"
+        else:
+            print "password does not contain capital letters"
+    else:
+        print "password is too short"
