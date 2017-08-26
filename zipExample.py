@@ -1,3 +1,5 @@
+""" example on using the zipfile module, first section opens an existing archive and shows a few functions
+second section shows how to create an archive and add files to it"""
 import zipfile,os
 
 os.chdir('C:\\')
