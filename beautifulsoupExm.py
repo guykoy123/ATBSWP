@@ -1,5 +1,5 @@
 #python 2.7
-#lucky.py - Opens several Google search results
+#beautifulsoupExm.py - Opens several Google search results
 
 import requests,sys,webbrowser, bs4
 
@@ -9,8 +9,8 @@ res.raise_for_status() #check for correct page download
 
 soup=bs4.BeautifulSoup(res.text) #parse HTML
 
-linkElems=soup.select('.r a')
+linkElems=soup.select('.r a') #retrieve all search result elements
 numOpen=min(5,len(linkElems))
 for i in range(numOpen):
-    webbrowser.open('http://google.com'+linkElems[i].get('href'))
+    webbrowser.open('http://google.com'+linkElems[i].get('href')) #open new tab for search result
     
