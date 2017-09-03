@@ -10,6 +10,6 @@ try:
     for chunk in res.iter_content(100000): #divides the content into chunks the size of 100000 bytes
         playFile.write(chunk) #save each chunk
 
-except Excption as exc:
+except Exception as exc:
     print 'An Error has occured',exc
     
